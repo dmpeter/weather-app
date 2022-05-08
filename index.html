@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="page-content page-container" id="page-content">
+      <div class="padding">
+        <div class="row container d-flex justify-content-center">
+          <div class="col-lg-8 grid-margin stretch-card">
+            <!--weather card-->
+            <div class="card card-weather">
+              <div class="card-body">
+                <div class="weather-date-location">
+                  <h3 class="weather-day">Friday</h3>
+                  <p class="text-gray">
+                    <span class="weather-date">25 March, 2019</span>
+                    <span class="weather-location">Sydney, Australia</span>
+                  </p>
+                  <p class="weather-main-description">Cloudy</p>
+                </div>
+                <div class="weather-data d-flex">
+                  <div class="mr-auto">
+                    <h4 class="display-3">
+                      <span class="temp-current">32</span
+                      ><span class="symbol unit">°C</span>
+                    </h4>
+                    <p>Humidity: <span class="humidity">10</span>%</p>
+                    <p>Wind: <span class="wind">5</span>km/h</p>
+                  </div>
+                </div>
+                <form class="form-search">
+                  <div class="row">
+                    <div class="search-bar col-6">
+                      <input
+                        type="search"
+                        placeholder="Search city.."
+                        autofocus="on"
+                        autocomplete="off"
+                        id="input-city"
+                        class="form-control shadow-sm"
+                      />
+                    </div>
+                    <div class="col-3">
+                      <input
+                        type="submit"
+                        value="Search"
+                        class="form-control btn btn-primary shadow-sm w-100"
+                      />
+                    </div>
+                    <div class="col-3">
+                      <button
+                        class="btn btn-success w-100"
+                        id="btn-location-current"
+                      >
+                        Local
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-body p-0">
+                <div class="d-flex weakly-weather">
+                  <div class="weakly-weather-item">
+                    <p class="mb-0">Sun</p>
+                    <i class="mdi mdi-weather-cloudy"></i>
+                    <p class="mb-0">30°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Mon</p>
+                    <i class="mdi mdi-weather-hail"></i>
+                    <p class="mb-0">31°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Tue</p>
+                    <i class="mdi mdi-weather-partlycloudy"></i>
+                    <p class="mb-0">28°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Wed</p>
+                    <i class="mdi mdi-weather-pouring"></i>
+                    <p class="mb-0">30°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Thu</p>
+                    <i class="mdi mdi-weather-pouring"></i>
+                    <p class="mb-0">29°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Fri</p>
+                    <i class="mdi mdi-weather-snowy-rainy"></i>
+                    <p class="mb-0">31°</p>
+                  </div>
+                  <div class="weakly-weather-item">
+                    <p class="mb-1">Sat</p>
+                    <i class="mdi mdi-weather-snowy"></i>
+                    <p class="mb-0">32°</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--weather card ends-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
