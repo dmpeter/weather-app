@@ -98,10 +98,22 @@ function handlePosition(position) {
 
 function showFahrenheitTemperature(event) {
   event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+
   let currentTemp = document.querySelector(".temp-current");
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
 
   currentTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelciusTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celciusLink.classList.add("active");
+
+  let currentTemp = document.querySelector(".temp-current");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
 let formSearch = document.querySelector(".form-search");
@@ -113,5 +125,8 @@ getCurrentDate();
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemperature);
 
 let celsiusTemp = null;
