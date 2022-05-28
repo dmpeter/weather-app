@@ -143,9 +143,17 @@ function getForecast(coordinates) {
   axios.get(apiURL).then(displayForecast);
 }
 
+function load(city) {
+  let apiKey = "731649d671b2838caf05516f1e2dd5d3";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(updateWeatherData);
+}
+
 let formSearch = document.querySelector(".form-search");
 formSearch.addEventListener("click", searchLocation);
 
 let btnLocationCurrent = document.querySelector("#btn-location-current");
 btnLocationCurrent.addEventListener("click", handlePosition);
 getCurrentDate();
+
+load("Vienna");
