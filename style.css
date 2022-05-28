@@ -156,3 +156,7 @@ p {
 .card-weather .weakly-weather .weakly-weather-item i {
   font-size: 1.2rem;
 }
+
+.forecast-temp-min {
+  opacity: 65%;
+}

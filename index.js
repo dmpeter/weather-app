@@ -116,6 +116,27 @@ function showCelciusTemperature(event) {
   currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="weakly-weather-item">
+      <p class="mb-0">${day}</p>
+      <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="">
+      <p class="mb-0 forecast-temp-max">30°
+      <span class="forecast-temp-min"> 18°</span></p>
+    </div>
+  `;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let formSearch = document.querySelector(".form-search");
 formSearch.addEventListener("click", searchLocation);
 
@@ -130,3 +151,5 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
 
 let celsiusTemp = null;
+
+displayForecast();
