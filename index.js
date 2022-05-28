@@ -106,26 +106,6 @@ function handlePosition(position) {
   navigator.geolocation.getCurrentPosition(getLocation);
 }
 
-function showFahrenheitTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-
-  let currentTemp = document.querySelector(".temp-current");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-
-  currentTemp.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function showCelciusTemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celciusLink.classList.add("active");
-
-  let currentTemp = document.querySelector(".temp-current");
-  currentTemp.innerHTML = Math.round(celsiusTemp);
-}
-
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -169,11 +149,3 @@ formSearch.addEventListener("click", searchLocation);
 let btnLocationCurrent = document.querySelector("#btn-location-current");
 btnLocationCurrent.addEventListener("click", handlePosition);
 getCurrentDate();
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemperature);
-
-let celsiusTemp = null;
