@@ -56,7 +56,7 @@ function getLocation(position) {
   console.log(latitude);
   console.log(longitude);
 
-  let apiKey = "393e4807ec66e8c161be060a50d1af44";
+  let apiKey = "731649d671b2838caf05516f1e2dd5d3";
   let unit = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${unit}&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(updateWeatherData);
@@ -80,16 +80,18 @@ function updateWeatherData(response) {
       "src",
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+
+  getForecast(response.data.coord);
 }
 
 function searchLocation(event) {
   event.preventDefault();
   let city = document.querySelector("#input-city").value;
 
-  let apiKey = "393e4807ec66e8c161be060a50d1af44";
+  let apiKey = "731649d671b2838caf05516f1e2dd5d3";
   let unit = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(updateWeatherData);
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiURL).then(updateWeatherData);
 }
 
 function handlePosition(position) {
@@ -116,7 +118,8 @@ function showCelciusTemperature(event) {
   currentTemp.innerHTML = Math.round(celsiusTemp);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
@@ -137,6 +140,15 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "731649d671b2838caf05516f1e2dd5d3";
+  let unit = "metric";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
+  console.log(coordinates);
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
+
 let formSearch = document.querySelector(".form-search");
 formSearch.addEventListener("click", searchLocation);
 
@@ -151,5 +163,3 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemperature);
 
 let celsiusTemp = null;
-
-displayForecast();
